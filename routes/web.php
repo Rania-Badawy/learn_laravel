@@ -17,12 +17,20 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+// Route::get('/',[CategoryController::class,"all"]);
+// Route::get('/categories/add',[CategoryController::class,"add"]);
+// Route::post('/categories/insert',[CategoryController::class,"insert"]);
+// Route::get('/categories/edit/{id}',[CategoryController::class,"edit"]);
+// Route::post('/categories/update/{id}',[CategoryController::class,"update"]);
+// Route::get('/categories/delete/{id}',[CategoryController::class,"delete"]);
 
-Route::get('/',[CategoryController::class,"all"]);
-Route::get('/categories/add',[CategoryController::class,"add"]);
-Route::post('/categories/insert',[CategoryController::class,"insert"]);
-Route::get('/categories/edit/{id}',[CategoryController::class,"edit"]);
-Route::post('/categories/update/{id}',[CategoryController::class,"update"]);
-Route::get('/categories/delete/{id}',[CategoryController::class,"delete"]);
+Route::controller(CategoryController::class)->group(function(){
+    Route::get('/',"all");
+    Route::get('/categories/add',"add");
+    Route::post('/categories/insert',"insert");
+    Route::get('/categories/edit/{id}',"edit");
+    Route::post('/categories/update/{id}',"update");
+    Route::get('/categories/delete/{id}',"delete");
+});
 
 

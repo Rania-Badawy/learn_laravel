@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('name',100);
             $table->text('desc');
-            $table->text('smalldesc');
             $table->string('image')->nullable();
             $table->decimal("price",8,2);
             $table->foreignId("user_id")->constrained()->onUpdate("cascade")->onDelete("cascade");
