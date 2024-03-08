@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,12 +26,21 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/categories/delete/{id}',[CategoryController::class,"delete"]);
 
 Route::controller(CategoryController::class)->group(function(){
-    Route::get('/',"all");
+    Route::get('/categories',"all");
     Route::get('/categories/add',"add");
     Route::post('/categories/insert',"insert");
     Route::get('/categories/edit/{id}',"edit");
     Route::post('/categories/update/{id}',"update");
     Route::get('/categories/delete/{id}',"delete");
+});
+
+Route::controller(BookController::class)->group(function(){
+    Route::get('/books',"all");
+    Route::get('/books/add',"add");
+    Route::post('/books/insert',"insert");
+    Route::get('/books/edit/{id}',"edit");
+    Route::post('/books/update/{id}',"update");
+    Route::get('/books/delete/{id}',"delete");
 });
 
 

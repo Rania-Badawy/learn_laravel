@@ -27,7 +27,7 @@ class CategoryController extends Controller
         $data['image']=Storage::putFile('categories',$data['image']);
         Category::create($data);
         session()->flash("success","data inserted successfully");
-        return redirect(url("/"));
+        return redirect(url("/categories"));
      }
 
      public function edit($id){
@@ -49,7 +49,7 @@ class CategoryController extends Controller
 
         $category->update($data);
         session()->flash("success","data updated successfully");
-        return redirect(url("/"));
+        return redirect(url("/categories"));
      }
 
      public function delete($id){
@@ -57,6 +57,6 @@ class CategoryController extends Controller
         Storage::delete($category->image);
         $category->delete();
         session()->flash("success","data deleted successfully");
-        return redirect(url("/"));
+        return redirect(url("/categories"));
      }
 }
