@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,5 +43,18 @@ Route::controller(BookController::class)->group(function(){
     Route::post('/books/update/{id}',"update");
     Route::get('/books/delete/{id}',"delete");
 });
+
+Route::controller(UserController::class)->group(function(){
+    Route::middleware("guest")->group(function(){
+
+        Route::get('/register',"register");
+        Route::post('/addRegister',"addRegister");
+        Route::get('/login',"login")->name('login');
+        Route::post('/checkLogin',"checkLogin");
+    });
+    Route::get('/logout',"logout")->middleware('auth');
+    Route::get('/allUsers',"allUsers")->middleware('IsAdmin');
+});
+
 
 
