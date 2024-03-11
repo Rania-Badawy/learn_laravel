@@ -53,7 +53,7 @@ Route::controller(UserController::class)->group(function(){
         Route::post('/checkLogin',"checkLogin");
     });
     Route::get('/logout',"logout")->middleware('auth');
-    Route::get('/allUsers',"allUsers")->middleware('IsAdmin');
+    Route::get('/allUsers',"allUsers")->middleware(['IsAdmin','auth']);
 });
 
 

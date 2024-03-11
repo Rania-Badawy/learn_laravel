@@ -24,7 +24,7 @@ register Form
     </div>
     <div class="form-group">
         <label for="exampleInputPassword1">Confirm Password</label>
-        <input type="password" name="password-confirmation" class="form-control" id="exampleInputPassword1" placeholder="confirm password">
+        <input type="password" name="password_confirmation" class="form-control" id="exampleInputPassword1" placeholder="confirm password">
       </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
