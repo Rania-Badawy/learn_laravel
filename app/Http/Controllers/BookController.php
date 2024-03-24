@@ -25,7 +25,7 @@ class BookController extends Controller
            "desc"  =>"required|string",
            "image"  =>"required|image|mimes:jpg,png",
            "price"  =>"required|numeric",
-           "category_id"  =>"required",
+           "category_id"  =>"required|exists:categories,id",
          ]);
          $data['image']=Storage::putFile('Books',$data['image']);
          $data['user_id']=1;
